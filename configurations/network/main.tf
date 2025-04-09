@@ -17,6 +17,32 @@ resource "aws_vpc" "this" {
   )
 }
 
+resource "aws_default_security_group" "default" {
+  for_each = var.vpcs
+  vpc_id   = aws_vpc.this[each.key].id
+
+  ingress {
+    protocol  = -1
+    self      = true
+    from_port = 0
+    to_port   = 0
+  }
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 22
+    to_port     = 22
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_subnet" "this" {
   for_each = var.subnets
 
