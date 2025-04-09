@@ -12,7 +12,7 @@ module "spacelift_stacks" {
   source = "../modules/spacelift_stacks"
   stacks = {
     ansible_ec2_inventory = {
-      repo         = "spacelift_ansible_examples"
+      repo         = "spacelift_stack_dependencies"
       branch       = "main"
       project_root = "configurations/ansible"
       description  = "Ansible stack that uses an terraform generated inventory"
@@ -26,14 +26,14 @@ module "spacelift_stacks" {
       ansible_playbook = ["disk_threshold.yaml"]
     }
     terraform_ec2 = {
-      repo         = "spacelift_ansible_examples"
+      repo         = "spacelift_stack_dependencies"
       branch       = "main"
       project_root = "configurations/ec2"
       description  = "terraform stack that creates ec2 instances"
       labels       = ["terraform", "ansibleTerraform"]
     }
     terraform_network = {
-      repo         = "spacelift_ansible_examples"
+      repo         = "spacelift_stack_dependencies"
       branch       = "main"
       project_root = "configurations/network"
       description  = "terraform stack that creates a network"
