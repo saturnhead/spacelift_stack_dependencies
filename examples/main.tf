@@ -84,7 +84,7 @@ module "spacelift_stacks" {
     var2 = {
       dependency_name = "network_ec2"
       output_name     = "subnet_ids"
-      input_name      = "TF_VAR_subnet_ids"
+      input_name      = "TF_VAR_subnets"
     }
   }
 }
