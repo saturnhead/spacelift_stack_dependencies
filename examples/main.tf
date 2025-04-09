@@ -9,7 +9,7 @@ terraform {
 }
 
 module "spacelift_stacks" {
-  source = "../../modules/spacelift_stacks"
+  source = "../modules/spacelift_stacks"
   stacks = {
     ansible_ec2_inventory = {
       repo         = "spacelift_ansible_examples"
@@ -59,8 +59,8 @@ module "spacelift_stacks" {
   env_vars = {
     ansible_cfg = {
       name           = "ANSIBLE_CONFIG"
-      value          = "/mnt/workspace/source/configurations/ansible_dependency/ansible.cfg"
-      stack_name     = "ansible_terraform_inventory"
+      value          = "/mnt/workspace/source/configurations/ansible/ansible.cfg"
+      stack_name     = "ansible_ec2_inventory"
       add_to_context = false
     }
   }
