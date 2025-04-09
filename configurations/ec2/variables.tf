@@ -2,6 +2,7 @@ variable "instances" {
   type = map(object({
     instance_type = optional(string, "t2.micro")
     tags          = optional(map(string), {})
+    subnet_name   = string
   }))
   default = {
     instance1 = {
