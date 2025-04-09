@@ -5,16 +5,20 @@ variable "instances" {
   }))
   default = {
     instance1 = {
-      tags = { "Env" : "dev" }
+      tags        = { "Env" : "dev" }
+      subnet_name = "public-subnet-1"
     }
     instance2 = {
-      tags = { "Env" : "dev" }
+      tags        = { "Env" : "dev" }
+      subnet_name = "public-subnet-1"
     }
     instance3 = {
-      tags = { "Env" : "qa" }
+      tags        = { "Env" : "qa" }
+      subnet_name = "public-subnet-2"
     }
     instance4 = {
-      tags = { "Env" : "prod" }
+      tags        = { "Env" : "prod" }
+      subnet_name = "public-subnet-2"
     }
   }
 }
